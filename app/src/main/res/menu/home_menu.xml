@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+        xmlns:auto="http://schemas.android.com/apk/res-auto"
+        xmlns:element="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.bukkyowoh.promptschedule.HomeActivity">
+
+        <item
+                element:onClick="goToSettings"
+                element:orderInCategory="100"
+                element:title="@string/settings"
+                auto:showAsAction="never"/>
+
+        <item
+                element:onClick="showAboutApp"
+                element:orderInCategory="200"
+                element:title="@string/about"
+                auto:showAsAction="never"/>
+
+</menu>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        android:orientation="vertical"
+        tools:context="HistoryActivity">
+
+        <ListView
+                android:id="@+id/historyListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbarThumbVertical="@null">
+
+        </ListView>
+
+        <TextView
+                android:id="@+id/noHistory"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|top"
+                android:padding="40dp"
+                android:text="@string/no_history"
+                android:textAllCaps="true"
+                android:textColor="@color/text"
+                android:textSize="20sp"
+                android:visibility="gone"/>
+
+</LinearLayout>

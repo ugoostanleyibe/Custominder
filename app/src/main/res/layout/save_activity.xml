@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:auto="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"
+        tools:context="SaveActivity">
+
+        <LinearLayout
+                android:id="@+id/playPauseButtonWrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical">
+
+                <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/playPauseButton"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="20dp"
+                        android:onClick="togglePlayback"
+                        android:src="@drawable/play_icon"
+                        auto:backgroundTint="#B1B3B6"
+                        auto:elevation="10dp"
+                        auto:fabSize="normal"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/setDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/dateFieldWrapper"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/set_date"
+                android:textColor="@color/text"
+                android:textSize="16sp"/>
+
+        <LinearLayout
+                android:id="@+id/dateFieldWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/setTime"
+                android:layout_marginBottom="20dp"
+                android:background="@color/primary"
+                android:onClick="showDatePicker"
+                android:padding="3dp">
+
+                <TextView
+                        android:id="@+id/dateField"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#B1B3B6"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="@string/dummy_date"
+                        android:textColor="@color/text"
+                        android:textSize="40sp"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:id="@+id/setTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/timeFieldWrapper"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="@string/set_time"
+                android:textColor="@color/text"
+                android:textSize="16sp"/>
+
+        <LinearLayout
+                android:id="@+id/timeFieldWrapper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/saveButton"
+                android:layout_marginBottom="40dp"
+                android:background="@color/primary"
+                android:onClick="showTimePicker"
+                android:padding="3dp">
+
+                <TextView
+                        android:id="@+id/timeField"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#B1B3B6"
+                        android:gravity="center"
+                        android:padding="3dp"
+                        android:text="@string/dummy_time"
+                        android:textColor="@color/text"
+                        android:textSize="40sp"/>
+
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/saveButton"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                android:background="@color/primary"
+                android:onClick="saveReminder"
+                android:text="@string/save"
+                android:textColor="@android:color/white"/>
+
+</RelativeLayout>

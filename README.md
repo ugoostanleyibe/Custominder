@@ -1,2 +1,2 @@
 # PromptSchedule
-A Simple Voice Reminder App
+A Simple Voice Reminder Android App

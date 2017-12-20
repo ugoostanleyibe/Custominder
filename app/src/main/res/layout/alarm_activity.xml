@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:auto="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="40dp"
+        tools:context="PSAlarmActivity">
+
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/dismissButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                android:onClick="dismissAlarm"
+                android:src="@drawable/close_icon"
+                auto:backgroundTint="#B1B3B6"
+                auto:elevation="10dp"
+                auto:fabSize="normal"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/dismiss"
+                android:textAllCaps="true"
+                android:textColor="@color/text"
+                android:textSize="14sp"/>
+
+</LinearLayout>
