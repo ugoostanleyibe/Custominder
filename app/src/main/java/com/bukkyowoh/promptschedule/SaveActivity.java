@@ -23,17 +23,16 @@ public class SaveActivity extends AppCompatActivity {
         protected Calendar alarmTime;
         protected PSProvider provider;
         protected TextView dateField;
-        protected TextView timeField;
+        protected TextView timeField = (TextView) findViewById(R.id.timeField);
         protected Button saveButton;
         protected boolean ignored;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState); setContentView(R.layout.save_activity);
-                playPauseButton = (FloatingActionButton) findViewById(R.id.playPauseButton);
-                saveButton = (Button) findViewById(R.id.saveButton); ignored = true;
-                dateField = (TextView) findViewById(R.id.dateField);
-                timeField = (TextView) findViewById(R.id.timeField);
+                playPauseButton = findViewById(R.id.playPauseButton);
+                saveButton = findViewById(R.id.saveButton); ignored = true;
+                dateField = findViewById(R.id.dateField);
                 recording = PSRecorder.getLastRecording();
                 currentTime = Calendar.getInstance();
                 alarmTime = Calendar.getInstance();

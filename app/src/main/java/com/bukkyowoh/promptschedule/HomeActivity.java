@@ -31,10 +31,14 @@ public class HomeActivity extends AppCompatActivity implements HoldingButtonLayo
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState); setContentView(R.layout.home_activity); self = this;
-                (holdingButtonLayout = (HoldingButtonLayout) findViewById(R.id.holdingButtonLayout))
-                        .addListener(this); slideToCancelLayout = findViewById(R.id.slideToCancelLayout);
-                timerBoard = (TextView) findViewById(R.id.timerBoard); Utils.log("App Created");
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.home_activity);
+                self = this;
+                (holdingButtonLayout = findViewById(R.id.holdingButtonLayout))
+                        .addListener(this);
+                slideToCancelLayout = findViewById(R.id.slideToCancelLayout);
+                timerBoard = findViewById(R.id.timerBoard);
+                Utils.log("App Created");
         }
 
         /*@Override
@@ -47,16 +51,22 @@ public class HomeActivity extends AppCompatActivity implements HoldingButtonLayo
         public void onBeforeExpand() {
                 if (ContextCompat.checkSelfPermission(getApplicationContext(),
                         Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-                        cancelAllAnimations(); slideToCancelLayout.setTranslationX(0.0f);
-                        slideToCancelLayout.setAlpha(0.0f); slideToCancelLayout.setVisibility(View.VISIBLE);
+                        cancelAllAnimations();
+                        slideToCancelLayout.setTranslationX(0.0f);
+                        slideToCancelLayout.setAlpha(0.0f);
+                        slideToCancelLayout.setVisibility(View.VISIBLE);
                         (slideToCancelLayoutAnimator = slideToCancelLayout.animate()
                                 .alpha(1.0f).setDuration(200)).start();
                         timerBoard.setTranslationY(timerBoard.getHeight());
-                        timerBoard.setAlpha(0.0f); timerBoard.setVisibility(View.VISIBLE);
+                        timerBoard.setAlpha(0.0f);
+                        timerBoard.setVisibility(View.VISIBLE);
                         (timerBoardAnimator = timerBoard.animate().translationY(0.0f)
-                                .alpha(1.0f).setDuration(200)).start(); allowed = true;
+                                .alpha(1.0f).setDuration(200)).start();
+                        allowed = true;
                 } else {
-                        allowed = false; holdingButtonLayout.cancel(); ActivityCompat.requestPermissions(self,
+                        allowed = false;
+                        holdingButtonLayout.cancel();
+                        ActivityCompat.requestPermissions(self,
                                 new String[]{Manifest.permission.RECORD_AUDIO}, 10101);
                 }
         }
@@ -64,7 +74,8 @@ public class HomeActivity extends AppCompatActivity implements HoldingButtonLayo
         @Override
         public void onExpand() {
                 if (allowed) {
-                        startTime = System.currentTimeMillis(); runTimer();
+                        startTime = System.currentTimeMillis();
+                        runTimer();
                         PSRecorder.setCurrentFileName("PromptSchedule" + Utils
                                 .timeStringFromFormat("yyyyMMddHHmmss", startTime));
                         PSRecorder.setCurrentPath(getFilesDir() + "/" +
@@ -142,7 +153,10 @@ public class HomeActivity extends AppCompatActivity implements HoldingButtonLayo
         }
 
         protected void runTimer() {
-                timerRunnable = () -> { timerBoard.setText(getElapsedTime()); runTimer(); };
+                timerRunnable = () -> {
+                        timerBoard.setText(getElapsedTime());
+                        runTimer();
+                };
                 timerBoard.postDelayed(timerRunnable, 50);
         }
 

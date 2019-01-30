@@ -17,10 +17,10 @@ public class PSAlarmActivity extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState); getWindow()
-                        .addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
-                                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
-                                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+                super.onCreate(savedInstanceState);
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+                        WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                        WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
                 setContentView(R.layout.alarm_activity);
                 provider = new PSProvider(this);
 
@@ -31,13 +31,16 @@ public class PSAlarmActivity extends AppCompatActivity {
 
         @Override
         protected void onDestroy() {
-                super.onDestroy(); stopAlarm(); Utils.clearScheduledTasks();
+                super.onDestroy();
+                stopAlarm();
+                Utils.clearScheduledTasks();
         }
 
         @SuppressWarnings("deprecation")
         protected void startAlarm() {
                 try {
-                        mediaPlayer = new MediaPlayer(); vibrator.vibrate(new long[]{0, 500, 500}, 0);
+                        mediaPlayer = new MediaPlayer();
+                        vibrator.vibrate(new long[]{0, 500, 500}, 0);
                         mediaPlayer.setOnCompletionListener(player -> scheduleLoop());
                         mediaPlayer.setDataSource(reminder.getRecording().getPath());
                         mediaPlayer.prepare();
@@ -48,7 +51,8 @@ public class PSAlarmActivity extends AppCompatActivity {
         }
 
         protected void stopAlarm() {
-                mediaPlayer.stop(); vibrator.cancel();
+                mediaPlayer.stop();
+                vibrator.cancel();
         }
 
         protected void scheduleLoop() {

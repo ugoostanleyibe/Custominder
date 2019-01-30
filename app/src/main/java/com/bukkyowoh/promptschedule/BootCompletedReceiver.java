@@ -12,7 +12,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         @Override
         public void onReceive(Context context, Intent intent) {
-                provider = new PSProvider(context); reminders = provider.get("pending");
-                for (PSReminder reminder : reminders) provider.schedule(reminder);
+                if (intent.getAction() != null && intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED)) {
+                        provider = new PSProvider(context); reminders = provider.get("pending");
+                        for (PSReminder reminder : reminders) provider.schedule(reminder);
+                }
         }
 }

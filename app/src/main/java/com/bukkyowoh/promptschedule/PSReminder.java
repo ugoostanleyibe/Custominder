@@ -7,7 +7,10 @@ class PSReminder {
         private long mId;
 
         PSReminder(PSRecording recording, long time, long id) {
-                mRecording = recording; mTime = time; mId = id; mKey = recording.getName();
+                mKey = recording.getName();
+                mRecording = recording;
+                mTime = time;
+                mId = id;
         }
 
         PSRecording getRecording() {
